@@ -1,0 +1,15 @@
+const { getSingleCategory, updateCategory, deleteCategory, createCategory, getCategories } = require('../controlleurs/categoryCntr')
+const { verifyTokenAndAdmin, verifyToken } = require('../middlewares/jwtMiddleware')
+const photoUpload = require('../middlewares/photoUpload')
+const { getCategoryValidator, createCategoryValidator, updateCategoryValidator, deleteCategoryValidator } = require('../utilis/validators/categoryValidator')
+const subCategoryRouter = require('./subCategoryRouter')
+const router = require('express').Router()
+router.use('/:categoryId/subCategories',subCategoryRouter)
+router.route('/')
+            .post(verifyTokenAndAdmin,photoUpload.single("image"),createCategoryValidator,createCategory)
+            .get(getCategories)
+
+router.route('/:id').get(getCategoryValidator,getSingleCategory)
+                    .put(verifyTokenAndAdmin,updateCategoryValidator,updateCategory)
+                    .delete(verifyTokenAndAdmin,deleteCategoryValidator,deleteCategory)
+module.exports = router
