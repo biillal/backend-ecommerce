@@ -19,7 +19,7 @@ module.exports.sendResetPasswordLink = asyncHandler(async(req,res,next)=>{
         })
         await verificationToken.save()
     }
-    const link = `http://127.0.0.1:5173/reset-password/${user._id}/${verificationToken.token}`
+    const link = `https://ecommerce-teal-alpha.vercel.app/reset-password/${user._id}/${verificationToken.token}`
     const htmlTemplate = `<a href="${link}">Click here to reset your password</a>`
     await sendEmail(user.email,"Reset Password",htmlTemplate)
     res.status(201).json({

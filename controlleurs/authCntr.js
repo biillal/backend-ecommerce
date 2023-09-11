@@ -29,7 +29,7 @@ module.exports.signUp = asyncHandler(async (req, res, next) => {
     await verifToken.save()
     console.log(verifToken);
     // making the link
-    const link = `http://127.0.0.1:5173/users/${users._id}/verify/${verifToken.token}`
+    const link = `https://ecommerce-teal-alpha.vercel.app/users/${users._id}/verify/${verifToken.token}`
     //puting the link  into on html 
     console.log(link);
     const htmlTemplate = `
