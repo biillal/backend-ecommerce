@@ -11,13 +11,9 @@ exports.getProductValidator = [
 ]
 
 exports.createProductValidator = [
-    check('name')
+    check('title')
         .notEmpty()
-        .withMessage('name is required')
-        .custom((val, { req }) => {
-            req.body.slug = slugify(val)
-            return true
-        })
+        .withMessage('title is required')
     ,
     check('description')
         .notEmpty()

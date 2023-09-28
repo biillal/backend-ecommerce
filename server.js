@@ -23,6 +23,7 @@ app.use('/api/users', require('./routers/userRouter'))
 app.use('/api/categories',require('./routers/categoryRouter'))
 app.use('/api/subCategories',require('./routers/subCategoryRouter'))
 app.use('/api/brands',require('./routers/brandRouter'))
+app.use('/api/products',require('./routers/productRouter'))
 app.use('/api/password',require('./routers/passwordRouter'))
 
 
