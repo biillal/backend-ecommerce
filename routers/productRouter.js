@@ -1,6 +1,6 @@
 const { verifyTokenAndAdmin } = require('../middlewares/jwtMiddleware')
 const photoUpload = require('../middlewares/photoUpload')
-const { createProduct, getProduct, getSingleProduct, updateProduct, deleteProduct } = require('../services/productServices')
+const { createProduct, getProduct, getSingleProduct, updateProduct, deleteProduct } = require('../controlleurs/productCntr')
 const { getProductValidator, updateProductValidator, deleteProductValidator, createProductValidator } = require('../utilis/validators/productValidator')
 const subCategoryRouter = require('./subCategoryRouter')
 const router = require('express').Router()
